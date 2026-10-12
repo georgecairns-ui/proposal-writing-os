@@ -1,0 +1,62 @@
+{
+  "id": "proposals",
+  "name": "Proposal OS",
+  "version": "1.0.0",
+  "sharedVersion": "6",
+  "attachingVersion": "1",
+  "app": "apps/proposals/",
+  "dataFiles": [
+    "apps/proposals/data/proposals.json"
+  ],
+  "skills": [
+    "write-a-proposal",
+    "check-client-folders",
+    "change-a-proposal",
+    "follow-up-a-proposal",
+    "import-a-proposal-template",
+    "build-my-proposal-skill",
+    "proposals-check-in",
+    "sort-proposals-brain-dump"
+  ],
+  "setupSteps": [
+    "setup/proposals-01-your-brand.md",
+    "setup/proposals-02-what-you-sell.md",
+    "setup/proposals-03-your-templates.md",
+    "setup/proposals-04-your-client-folders.md",
+    "setup/proposals-05-your-proposal-skill.md",
+    "setup/proposals-06-first-proposal.md"
+  ],
+  "contextFiles": [
+    "context/sales.md",
+    "context/proposals.md"
+  ],
+  "connections": [
+    "setup/connections/gmail-and-google-calendar.md",
+    "setup/connections/microsoft-365.md",
+    "setup/connections/google-drive.md",
+    "setup/connections/fathom.md",
+    "setup/connections/fireflies.md",
+    "setup/connections/granola.md",
+    "setup/connections/otter.md",
+    "setup/connections/read-ai.md",
+    "setup/connections/tldv.md",
+    "setup/connections/zoom.md",
+    "setup/connections/hubspot.md",
+    "setup/connections/pipedrive.md"
+  ],
+  "claudeSection": "apps/proposals/ATTACH-CLAUDE.md",
+  "reads": [
+    "pipeline",
+    "task-list"
+  ],
+  "sends": [
+    {
+      "to": "task-list",
+      "what": "suggested tasks to check a new proposal and to follow up a sent one"
+    },
+    {
+      "to": "pipeline",
+      "what": "a suggestion to move the deal when its proposal is sent, won or lost"
+    }
+  ]
+}

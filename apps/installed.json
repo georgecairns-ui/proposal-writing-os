@@ -1,0 +1,10 @@
+{
+  "tools": [
+    {
+      "id": "proposals",
+      "name": "Proposal OS",
+      "app": "apps/proposals/",
+      "dataFiles": ["apps/proposals/data/proposals.json"]
+    }
+  ]
+}

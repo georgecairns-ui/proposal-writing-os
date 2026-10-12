@@ -1,0 +1,109 @@
+#!/bin/bash
+#
+# MAKE RELEASE
+# ------------
+# Builds dist/proposal-writing-os.zip: a clean copy of the kit for customers to download.
+#
+# Run it from the proposal-writing-os folder with:   bash maintainers/make-release.sh
+#
+# What it does:
+#   1. Checks the files that ship are still blank templates, so nobody's real proposals,
+#      business notes or setup progress can go out by mistake. Stops if not.
+#   2. Copies the kit into a temporary folder called "Proposal OS", leaving out this
+#      maintainers folder, git history, old builds, backups and computer clutter.
+#   3. Checks the copy is complete and the data file is valid.
+#   4. Zips it as dist/proposal-writing-os.zip, replacing any older one.
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+DIST="$ROOT/dist"
+STAGE="$(mktemp -d "${TMPDIR:-/tmp}/proposal-writing-os-build.XXXXXX")"
+trap 'rm -rf "$STAGE"' EXIT
+NAME="Proposal OS"
+OUT="$STAGE/$NAME"
+
+fail() { echo "RELEASE STOPPED: $1" >&2; exit 1; }
+
+# ---------- 1. Is everything that ships still a blank template? ----------
+python3 - "$ROOT" <<'PYEOF' || fail "the files above contain real data. Restore them with: git checkout -- apps/proposals/data apps/proposals/brand context setup/progress.md CLAUDE.md"
+import json, sys, pathlib, re
+root = pathlib.Path(sys.argv[1])
+problems = []
+data = json.loads((root / "apps/proposals/data/proposals.json").read_text())
+for key in ("packages", "extras", "clients", "proposals", "requests", "activity"):
+    if data.get(key):
+        problems.append("apps/proposals/data/proposals.json has " + key + " in it")
+# No demo mode and no sample business ships (the demo lives in ~/Claude/08_Artifacts/Proposal-OS-Demo)
+if (root / "apps/proposals/app/demo-data.js").exists():
+    problems.append("apps/proposals/app/demo-data.js is back: the demo lives outside the kit")
+for f in list((root / "apps").rglob("*.js")) + list((root / "apps").rglob("*.html")) + list((root / "apps").rglob("menu.json")):
+    txt = f.read_text(errors="ignore")
+    if re.search(r"makeDemoData|makeProposalDemoData|setDemo|isDemo|demo-data\.js|demo-mode|data-action=\"demo|data-change=\"demo|Demo mode", txt):
+        problems.append(f"{f.relative_to(root)} still has demo mode in it")
+if (data.get("checkIn") or {}).get("lastRunAt"):
+    problems.append("apps/proposals/data/proposals.json has a check-in in it")
+settings = data.get("settings", {})
+if any(settings.get(k) for k in ("yourName", "businessName", "ownSkill", "paymentTerms")):
+    problems.append("apps/proposals/data/proposals.json has someone's details in its settings")
+if any((settings.get("signOff") or {}).values()) or any((settings.get("brand") or {}).get(k) for k in ("logo", "logoOnColour", "website", "setUp")):
+    problems.append("apps/proposals/data/proposals.json has someone's sign-off or brand in it")
+if settings.get("proposalsSetUp"):
+    problems.append("apps/proposals/data/proposals.json says proposals are set up")
+brand = (root / "apps/proposals/brand/brand.css").read_text()
+if "--doc-primary:      #2B2B2B;" not in brand:
+    problems.append("apps/proposals/brand/brand.css has someone's colours in it")
+extra_brand = [f.name for f in (root / "apps/proposals/brand").iterdir() if f.name not in ("brand.css", ".DS_Store")]
+if extra_brand:
+    problems.append("apps/proposals/brand/ has someone's files in it: " + ", ".join(extra_brand))
+clients = [f.name for f in (root / "files/02-clients").iterdir() if f.name not in ("README.md", ".DS_Store")]
+if clients:
+    problems.append("files/02-clients/ has client folders in it")
+for f in sorted((root / "context").glob("*.md")):
+    if f.name != "README.md" and "Status: not filled in yet" not in f.read_text():
+        problems.append(f"{f.relative_to(root)} has been filled in")
+if [f.name for f in (root / "skills-to-upload").iterdir() if f.name not in ("README.md", ".DS_Store")]:
+    problems.append("skills-to-upload/ has someone's own skills in it")
+if "(Claude fills this in during setup)" not in (root / "skills-to-upload/README.md").read_text():
+    problems.append("skills-to-upload/README.md lists someone's own skills")
+if "Setup status: not started" not in (root / "setup/progress.md").read_text():
+    problems.append("setup/progress.md is not blank")
+# The shipped permissions never include a tool that sends, deletes or posts (setup adds the one
+# send tool the person agrees to, in their own settings.local.json)
+perms = json.loads((root / ".claude/settings.json").read_text()).get("permissions", {}).get("allow", [])
+if any(re.search(r"send|delete|trash|post|forward|reply", p, re.I) and p.startswith("mcp__") for p in perms):
+    problems.append(".claude/settings.json pre-approves a tool that sends, deletes or posts")
+if "Setup: not done yet" not in (root / "CLAUDE.md").read_text():
+    problems.append("CLAUDE.md says setup is done")
+for p in problems:
+    print("  - " + p, file=sys.stderr)
+sys.exit(1 if problems else 0)
+PYEOF
+
+# ---------- 2. Copy, leaving out what customers don't need ----------
+mkdir -p "$OUT" "$DIST"
+rsync -a \
+  --exclude '.git' --exclude '.gitignore' --exclude 'dist' --exclude 'maintainers' \
+  --exclude '.claude/launch.json' --exclude '.claude/settings.local.json' --exclude '.claude/.cc-writes' \
+  --exclude '*.backup.json' --exclude 'apps/home/data' --exclude '.DS_Store' --exclude '._*' --exclude 'Thumbs.db' --exclude 'desktop.ini' \
+  "$ROOT/" "$OUT/"
+# Claude Code can leave empty .claude folders around the kit while it works; only the top one ships
+find "$OUT" -mindepth 2 -type d -name .claude -empty -prune -exec rm -rf {} +
+
+# ---------- 3. Checks ----------
+for f in "START-HERE.md" "CLAUDE.md" "Open Proposals.html" "apps/proposals/index.html" "apps/proposals/data/proposals.json" "apps/proposals/menu.json" "apps/proposals/home-boxes.js" "apps/proposals/claude-jobs.json" "apps/proposals/CLAUDE.md" "apps/proposals/ATTACH-CLAUDE.md" "apps/proposals/brand/brand.css" "apps/proposals/app/app.js" "apps/proposals/app/doc.js" "apps/proposals/app/model.js" "setup/progress.md" ".claude/skills/README.md" ".claude/settings.json" ".claude/skills/write-a-proposal/SKILL.md" ".claude/skills/check-client-folders/SKILL.md" ".claude/skills/change-a-proposal/SKILL.md" ".claude/skills/follow-up-a-proposal/SKILL.md" ".claude/skills/import-a-proposal-template/SKILL.md" ".claude/skills/build-my-proposal-skill/SKILL.md" ".claude/skills/proposals-check-in/SKILL.md" ".claude/skills/sort-proposals-brain-dump/SKILL.md" "setup/scripts/save-key.sh" "setup/scripts/start-task-list.sh" "apps/server/server.js" "apps/server/server.py" "setup/connections/README.md" "toolkit.json" "ATTACHING.md" "apps/installed.json" "apps/shared/catalogue.json" "apps/shared/VERSION" "apps/shared/sidebar.css" "apps/shared/js/sidebar.js" "apps/shared/js/theme.js" "apps/shared/js/braindump.js" ".claude/skills/sort-brain-dump/SKILL.md" "apps/shared/images/claude-icon.png" "apps/home/index.html" "apps/home/home.js" "apps/home/home.css" "apps/shared/fonts/Figtree-Variable.woff2" "apps/shared/fonts/SourceSerif4-Variable.woff2" "context/sales.md" "context/proposals.md" "files/02-clients/README.md" "setup/proposals-01-your-brand.md" "setup/proposals-02-what-you-sell.md" "setup/proposals-03-your-templates.md" "setup/proposals-04-your-client-folders.md" "setup/proposals-05-your-proposal-skill.md" "setup/proposals-06-first-proposal.md" "setup/06-build-your-skills.md" "setup/09-check-and-hand-over.md" "skills-to-upload/README.md"; do
+  [ -e "$OUT/$f" ] || fail "missing $f"
+done
+for f in apps/proposals/data/proposals.json apps/proposals/menu.json apps/proposals/claude-jobs.json toolkit.json apps/installed.json apps/shared/catalogue.json; do
+  python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$OUT/$f" || fail "$f is not valid"
+done
+# A fresh download lists only Proposal OS, and no test tool ever ships
+python3 -c 'import json,sys; t=json.load(open(sys.argv[1]))["tools"]; sys.exit(0 if [x["id"] for x in t]==["proposals"] else 1)' "$OUT/apps/installed.json" || fail "apps/installed.json must list only Proposal OS"
+[ ! -e "$OUT/apps/test-tool" ] || fail "the test tool is in the release"
+if grep -rIl $'—' "$OUT" >/dev/null 2>&1; then fail "an em dash slipped in: $(grep -rIl $'—' "$OUT" | head -3)"; fi
+SKILLS=$(find "$OUT/.claude/skills" -name SKILL.md | wc -l | tr -d ' ')
+
+# ---------- 4. Zip (COPYFILE_DISABLE stops macOS adding hidden ._ files) ----------
+rm -f "$DIST/proposal-writing-os.zip"
+(cd "$STAGE" && COPYFILE_DISABLE=1 zip -rqX "$DIST/proposal-writing-os.zip" "$NAME")
+echo "Built dist/proposal-writing-os.zip ($(du -h "$DIST/proposal-writing-os.zip" | cut -f1 | tr -d ' '), $SKILLS skills)"
