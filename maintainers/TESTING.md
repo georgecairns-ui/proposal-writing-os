@@ -1,4 +1,4 @@
-# Testing Proposal OS
+# Testing Proposal Writing OS
 
 How to test the whole thing as a customer would, without touching the repository. Also follow section 5 of `SHARED-V3-CHANGES.md` and the testing sections of `SHARED-V4-CHANGES.md` to `SHARED-V6-CHANGES.md` for the shared parts.
 
@@ -10,7 +10,7 @@ Never test inside the repository: setup writes real details into it. Run the rel
 bash maintainers/make-release.sh
 ```
 
-Then unzip `dist/proposal-writing-os.zip` into a test location, for example `Documents/Proposal OS test`. Each test run starts from a fresh unzip.
+Then unzip `dist/proposal-writing-os.zip` into a test location, for example `Documents/Proposal Writing OS test`. Each test run starts from a fresh unzip.
 
 ## 2. Run setup as a customer
 
@@ -42,7 +42,7 @@ Then unzip `dist/proposal-writing-os.zip` into a test location, for example `Doc
 - [ ] Light and dark on every page (proposals stay white); 375, 768, 1024, 1440 and 2560 pixels wide: nothing runs off the side.
 
 **Home**
-- [ ] On its own, Proposal OS's Home boxes start switched on. Attached to Task List OS or Pipeline OS, they start switched off and show in Customise's hidden list.
+- [ ] On its own, Proposal Writing OS's Home boxes start switched on. Attached to Task List OS or Pipeline OS, they start switched off and show in Customise's hidden list.
 
 ## 4. Attached to Task List OS and Pipeline OS
 

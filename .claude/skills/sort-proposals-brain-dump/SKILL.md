@@ -1,11 +1,11 @@
 ---
 name: sort-proposals-brain-dump
-description: Handles the proposals part of a Brain dump note, handed over by the shared sort-brain-dump skill - saves what was said about a client into their folder, asks for or writes a proposal, changes one, or records that one was sent, won or lost. Use only when sort-brain-dump passes a part to Proposal OS.
+description: Handles the proposals part of a Brain dump note, handed over by the shared sort-brain-dump skill - saves what was said about a client into their folder, asks for or writes a proposal, changes one, or records that one was sent, won or lost. Use only when sort-brain-dump passes a part to Proposal Writing OS.
 ---
 
 # Sort the proposals part of a brain dump
 
-The shared `sort-brain-dump` skill has handed you the part of a note that's about proposals or clients, with the person's own words and what they said it was about (a client, a proposal, or Proposal OS). Nobody is watching, so make your best reading.
+The shared `sort-brain-dump` skill has handed you the part of a note that's about proposals or clients, with the person's own words and what they said it was about (a client, a proposal, or Proposal Writing OS). Nobody is watching, so make your best reading.
 
 ## What to do with each thing
 

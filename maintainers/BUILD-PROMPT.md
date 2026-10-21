@@ -1,4 +1,4 @@
-> **The original brief, kept for the record.** George changed it on 12 October 2026: the tool is called Proposal OS (repository `proposal-writing-os`, named on 21 October), it's built around one folder per client and a one-click Write proposal, and setup ends by rebuilding a proposal skill named after the business. `MAINTAINING.md` lists every decision.
+> **The original brief, kept for the record.** George changed it on 12 October 2026: the tool is called Proposal OS (renamed Proposal Writing OS, repository `proposal-writing-os`, on 21 October), it's built around one folder per client and a one-click Write proposal, and setup ends by rebuilding a proposal skill named after the business. `MAINTAINING.md` lists every decision.
 
 # Build prompt: Proposal Writer OS
 

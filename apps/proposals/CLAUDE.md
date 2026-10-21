@@ -1,6 +1,6 @@
 # Proposals: standing instructions for Claude
 
-This folder is the proposals app inside Proposal OS. You (Claude) and the app share one file, `data/proposals.json`. The person you work for sees it as proper software: Proposals (every proposal by where it's up to), Clients (one card per client folder, with **Write proposal**), Packages (what they sell and what it costs), each proposal laid out like the finished document in their brand, and Preferences. Read this file every time you work with proposals.
+This folder is the proposals app inside Proposal Writing OS. You (Claude) and the app share one file, `data/proposals.json`. The person you work for sees it as proper software: Proposals (every proposal by where it's up to), Clients (one card per client folder, with **Write proposal**), Packages (what they sell and what it costs), each proposal laid out like the finished document in their brand, and Preferences. Read this file every time you work with proposals.
 
 The app runs at **http://localhost:4747/proposals/**, served by a small helper on this computer (`apps/server/`, started by `.claude/skills/open-task-list`). The helper reads and saves this same file, so you edit it directly as described below; the app picks up your changes within a few seconds.
 
@@ -142,7 +142,7 @@ When the person presses **Write proposal**, **New proposal**, **Ask Claude** or 
 
 ## Client folders
 
-Everything about a client goes in their own folder: `<clientsFolder>/<client name>/`. Call notes, transcripts, emails, briefs, photos, old proposals, anything. This is how the person works with Proposal OS: drop things in a folder, press Write proposal.
+Everything about a client goes in their own folder: `<clientsFolder>/<client name>/`. Call notes, transcripts, emails, briefs, photos, old proposals, anything. This is how the person works with Proposal Writing OS: drop things in a folder, press Write proposal.
 
 - **You keep the folders tidy and complete.** When you find something about a client elsewhere (an email thread, a call recording, a note in the brain dump), save a short Markdown summary into their folder with a clear name (`2026-10-07 discovery call (Fathom).md`, `Emails with Dev Patel.md`), with the key facts and exact quotes that matter. Never paste whole private email threads; summaries and short quotes only. Add a line to the client's `sources`.
 - **Never delete or move their files** in a client folder. Old things go to `files/99-archive/`.

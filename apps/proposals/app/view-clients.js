@@ -27,7 +27,7 @@
     const latest = M.proposalsFor(d, c.id)[0];
     const req = M.requestFor(d, c.id);
     const actions = [];
-    if (req) actions.push('<a class="btn btn--sm btn--ghost" href="' + esc(C.claudeLink("Write the proposal for " + c.name + " in Proposal OS. Follow .claude/skills/write-a-proposal.")) + '" title="If nothing has happened after 5 minutes">' + icon("external") + "Open in Claude</a>");
+    if (req) actions.push('<a class="btn btn--sm btn--ghost" href="' + esc(C.claudeLink("Write the proposal for " + c.name + " in Proposal Writing OS. Follow .claude/skills/write-a-proposal.")) + '" title="If nothing has happened after 5 minutes">' + icon("external") + "Open in Claude</a>");
     else if (latest) actions.push('<button type="button" class="btn btn--sm" data-action="write-proposal" title="Write a fresh proposal from everything in the folder">' + icon("refresh") + "Write again</button>",
       '<button type="button" class="btn btn--sm btn--primary" data-action="open-proposal" data-proposal="' + esc(latest.id) + '">Open proposal' + icon("arrowRight") + "</button>");
     else actions.push('<button type="button" class="btn btn--sm btn--primary" data-action="write-proposal">' + icon("sparkle") + "Write proposal</button>");

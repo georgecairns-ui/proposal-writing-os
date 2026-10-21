@@ -5,7 +5,7 @@ description: Learns from the person's own proposal template or past proposals (W
 
 # Import a proposal template
 
-Many businesses already have a proposal they're proud of, or a template their clients know. Copy what makes it theirs: the order, the headings, the standard wording, the look. Their template wins over Proposal OS's defaults.
+Many businesses already have a proposal they're proud of, or a template their clients know. Copy what makes it theirs: the order, the headings, the standard wording, the look. Their template wins over Proposal Writing OS's defaults.
 
 ## 1. Get the files
 
@@ -16,13 +16,13 @@ Ask once, in one message (skip it if they've already given you something):
 - Save copies in `files/03-sales/proposals/templates/` (make the folder). Never move or change their originals.
 - A Google Docs, OneDrive or Canva link: read it through the connection if there is one; otherwise ask them to download it as a PDF or Word file and drop it in.
 - Word: if you can't read `.docx` directly, unzip it and read `word/document.xml`, or convert it to text with what's on the computer (`textutil -convert txt` on a Mac). Pages: ask for a PDF export.
-- If they have none, say that's fine (Proposal OS's layout is a good start) and stop here.
+- If they have none, say that's fine (Proposal Writing OS's layout is a good start) and stop here.
 
 ## 2. Learn from it
 
 Read every file properly, and look at it (open the PDF pages, or screenshots) for the look. Work out:
 
-- **The order and headings** of their sections, mapped to Proposal OS's 7: `about` (who the client is), `challenge` (the problem), `solution` (how they'll fix it), `delivery` (how it's run), `investment` (options and prices), `next` (next steps), `terms` (their terms). Use their headings as the labels ("Your situation", "Our approach", "Investment"). A section they never have: switch it off. A section of theirs that doesn't map (case studies, team bios, "Why us"): note it, and fold it into the nearest section as their own skill will describe (case studies usually sit in `solution`; team bios in `delivery`).
+- **The order and headings** of their sections, mapped to Proposal Writing OS's 7: `about` (who the client is), `challenge` (the problem), `solution` (how they'll fix it), `delivery` (how it's run), `investment` (options and prices), `next` (next steps), `terms` (their terms). Use their headings as the labels ("Your situation", "Our approach", "Investment"). A section they never have: switch it off. A section of theirs that doesn't map (case studies, team bios, "Why us"): note it, and fold it into the nearest section as their own skill will describe (case studies usually sit in `solution`; team bios in `delivery`).
 - **Standard wording** they reuse word for word: how they open, their guarantee, their "why us" paragraph, their sign-off, their next steps, their terms. Copy these exactly.
 - **How they price**: packages, tiers, day rates, a fixed fee, monthly. Check every package and price they show against `packages` in `apps/proposals/data/proposals.json`; add any that are missing **only if they confirm the price is current** (old proposals often have old prices).
 - **Tone and length**: formal or friendly, "we" or "I", how long each section runs.

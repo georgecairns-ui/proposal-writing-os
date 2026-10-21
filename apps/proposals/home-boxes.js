@@ -1,9 +1,9 @@
 /*
-  PROPOSAL OS ON HOME: the boxes this tool adds to the Home dashboard
+  PROPOSAL WRITING OS ON HOME: the boxes this tool adds to the Home dashboard
   -------------------------------------------------------------------
   Loaded by apps/home/home.js after app/model.js (see "home" in menu.json).
   It reads the same proposals file as the app, through the same shared store. On its own,
-  Proposal OS's boxes start switched on. With another tool's Home boxes already loaded (Task List
+  Proposal Writing OS's boxes start switched on. With another tool's Home boxes already loaded (Task List
   OS or Pipeline OS), they start switched off (the person turns them on in Home's list), so
   attaching never changes someone's Home.
 */
@@ -21,7 +21,7 @@
 
   // ---------- The boxes ----------
   function overview() {
-    if (M.notSetUp(data)) return '<div class="hbox__setup"><p><strong>Let’s set up your proposals.</strong> In the Claude desktop app, open the Code tab in your Proposal OS folder and type <code>/setup</code>. Claude learns your brand, packages and prices, then writes your first proposal from a real client.</p></div>';
+    if (M.notSetUp(data)) return '<div class="hbox__setup"><p><strong>Let’s set up your proposals.</strong> In the Claude desktop app, open the Code tab in your Proposal Writing OS folder and type <code>/setup</code>. Claude learns your brand, packages and prices, then writes your first proposal from a real client.</p></div>';
     const n = M.numbers(data);
     if (!data.proposals.length) return empty("No proposals yet. Put everything about a client in their folder and press Write proposal on the Clients page.");
     return '<p class="hstat"><span class="hstat__num">' + esc(M.money(data, n.sentValue)) + '</span><span class="hstat__label">out with clients, ' + n.sentCount + (n.sentCount === 1 ? " proposal" : " proposals") + "</span></p>" +

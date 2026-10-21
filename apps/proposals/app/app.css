@@ -1,5 +1,5 @@
 /*
-  PROPOSAL OS: layout and pieces (copied from Task List OS and Pipeline OS so the tools match; Proposal OS parts at the end)
+  PROPOSAL WRITING OS: layout and pieces (copied from Task List OS and Pipeline OS so the tools match; Proposal Writing OS parts at the end)
   Colours, fonts and spacing all come from shared/theme.css. The look of the proposals themselves
   (the business's own brand) is in ../brand/brand.css.
 */
@@ -685,7 +685,7 @@ details.slist > summary::-webkit-details-marker { display: none; }
 @media (max-width: 560px) { .setup-card { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   Proposal OS: its own pieces. Shared theme variables only, so light, dark and a customer's
+   Proposal Writing OS: its own pieces. Shared theme variables only, so light, dark and a customer's
    own colours all work in the app. The proposal pages use brand/brand.css.
    ============================================================ */
 

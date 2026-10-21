@@ -1,6 +1,6 @@
 # Make it yours
 
-Proposal OS is built to look and sound like your business. During setup Claude takes your logo, colours and fonts from your website or brand guidelines, copies your own proposal template if you have one, and builds a proposal skill named after your business. You can change any of it later. The easiest way is to ask Claude, for example:
+Proposal Writing OS is built to look and sound like your business. During setup Claude takes your logo, colours and fonts from your website or brand guidelines, copies your own proposal template if you have one, and builds a proposal skill named after your business. You can change any of it later. The easiest way is to ask Claude, for example:
 
 - "Make my proposals match my brand: navy and orange, with our new logo."
 - "Use a white cover, not a coloured one."

@@ -36,7 +36,7 @@
     }
     return '<section class="panel rail-box">' + C.sectionHead("Time for a nudge", { icon: "hourglass" }) +
       '<p class="muted">Sent ' + esc(C.ago(p.sentAt)) + " and no news yet.</p>" +
-      '<a class="btn btn--sm" href="' + esc(C.claudeLink("Write a follow-up for my proposal to " + M.clientName(d, p) + " in Proposal OS. Follow .claude/skills/follow-up-a-proposal.")) + '">' + icon("sparkle") + "Ask Claude for a follow-up</a></section>";
+      '<a class="btn btn--sm" href="' + esc(C.claudeLink("Write a follow-up for my proposal to " + M.clientName(d, p) + " in Proposal Writing OS. Follow .claude/skills/follow-up-a-proposal.")) + '">' + icon("sparkle") + "Ask Claude for a follow-up</a></section>";
   }
 
   function checks(c, p) {
@@ -60,7 +60,7 @@
     const waiting = M.changeWaiting(c.d, p.id);
     if (waiting) {
       return '<section class="panel rail-box rail-box--doing">' + icon("loader", "spin") + "<div><strong>Claude is changing it</strong><p class=\"muted\">“" + esc(waiting.instruction) + "”</p>" +
-        '<a class="link-btn" href="' + esc(C.claudeLink("In Proposal OS, follow .claude/skills/change-a-proposal for the waiting change requests in apps/proposals/data/proposals.json.")) + '">Nothing happening? Open in Claude</a></div></section>';
+        '<a class="link-btn" href="' + esc(C.claudeLink("In Proposal Writing OS, follow .claude/skills/change-a-proposal for the waiting change requests in apps/proposals/data/proposals.json.")) + '">Nothing happening? Open in Claude</a></div></section>';
     }
     if (!canEdit(c, p)) return "";
     return '<section class="panel rail-box"><form data-form="change" autocomplete="off">' + C.sectionHead("Ask Claude to change it", { icon: "sparkle" }) +

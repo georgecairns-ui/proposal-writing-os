@@ -1,5 +1,5 @@
 /*
-  PROPOSAL OS: the app
+  PROPOSAL WRITING OS: the app
   --------------------
   Ties everything together:
   1. Connects to data/proposals.json through the shared store.
@@ -90,7 +90,7 @@
     if (kind === "bad-file") return { title: "Your proposals file has a small mistake in it.", body: "Nothing new can show or save until it's fixed. Claude can sort it in a few seconds, and the last good version is kept in proposals.backup.json next to it.", say: "Please check my proposals.json file and fix it", short: "Your proposals file needs a quick fix" };
     if (kind === "missing") return { title: "Your proposals file has gone missing.", body: "It may have been moved or renamed. Ask Claude to check.", say: "My proposals file seems to be missing, please check it", short: "Your proposals file can't be found" };
     if (kind === "needs-permission") return { title: "Chrome needs your permission again.", body: "Click Try again and allow access to your folder.", short: "Chrome needs your permission again" };
-    if (kind === "helper-stopped") return { title: "Proposal OS has stopped running.", body: "Everything is saved. In Claude, say “open my proposals” and it starts again. This page reconnects by itself.", say: "Open my proposals", short: "Proposal OS has stopped running" };
+    if (kind === "helper-stopped") return { title: "Proposal Writing OS has stopped running.", body: "Everything is saved. In Claude, say “open my proposals” and it starts again. This page reconnects by itself.", say: "Open my proposals", short: "Proposal Writing OS has stopped running" };
     return { title: "That change didn't save.", body: "Nothing is lost. Try again in a moment.", short: "That change didn't save. Please try again" };
   }
 
@@ -106,7 +106,7 @@
   }
   function gateCard(art, eyebrow, title, body, actions, small) {
     return '<div class="gate__card">' +
-      '<div class="gate__text"><div class="gate__brand"><img src="../shared/images/claude-icon.png" alt="" width="28" height="28"><span>Proposal OS</span></div>' +
+      '<div class="gate__text"><div class="gate__brand"><img src="../shared/images/claude-icon.png" alt="" width="28" height="28"><span>Proposal Writing OS</span></div>' +
       (eyebrow ? '<span class="label">' + esc(eyebrow) + "</span>" : "") + "<h1>" + title + "</h1>" + body +
       '<div class="gate__actions">' + actions + "</div>" + (small ? '<p class="gate__small">' + small + "</p>" : "") + "</div>" +
       '<div class="gate__art"><img src="' + C.ART[art] + '" alt="" width="440" height="440"></div></div>';
@@ -117,7 +117,7 @@
     }
     if (status === "needs-helper") {
       return showGate(gateCard("welcome", "", "Your proposals open from Claude.",
-        "<p>Claude runs Proposal OS on this computer and gives you a link to it. In Claude Code, in your Proposal OS folder, just say:</p>" + C.say("Open my proposals") +
+        "<p>Claude runs Proposal Writing OS on this computer and gives you a link to it. In Claude Code, in your Proposal Writing OS folder, just say:</p>" + C.say("Open my proposals") +
         '<p class="gate__note">Not set up yet? Say <strong>/setup</strong> instead. Claude learns your brand, your packages and how you write, then writes your first proposal.</p>',
         "",
         '<button type="button" class="link-btn" data-action="connect">Or connect the folder yourself in Chrome</button>'));
@@ -136,7 +136,7 @@
     }
     showGate(gateCard("welcome", "One-time setup", "Proposals that write themselves. <span class=\"accent\">Checked by you.</span>",
       "<p>Put everything about a client in their folder. Claude writes the proposal in your brand, with your packages and prices, and you check it before it goes anywhere. It all lives on your own computer.</p>" +
-      '<ol class="gate__steps"><li><span>Click <strong>Connect your proposals</strong>.</span></li><li><span>Choose your <strong>Proposal OS</strong> folder, the one with START-HERE.md in it.</span></li><li><span>When Chrome asks to let this page edit files, click <strong>Allow</strong>.</span></li></ol>' +
+      '<ol class="gate__steps"><li><span>Click <strong>Connect your proposals</strong>.</span></li><li><span>Choose your <strong>Proposal Writing OS</strong> folder, the one with START-HERE.md in it.</span></li><li><span>When Chrome asks to let this page edit files, click <strong>Allow</strong>.</span></li></ol>' +
       (message ? '<p class="gate__error" role="alert">' + icon("alert") + esc(message) + "</p>" : ""),
       '<button type="button" class="btn btn--primary btn--lg" data-action="connect">' + icon("folder") + "Connect your proposals</button>",
       "No account, nothing to install. Your proposals never leave your computer."));
@@ -169,7 +169,7 @@
     return ' enter" style="--i:' + Math.min(stagger++, 12);
   }
   function storeInfo() {
-    return { canChange: !store.isHelper(), folder: store.isHelper() ? "Your Proposal OS folder, on this computer" : store.folderName() };
+    return { canChange: !store.isHelper(), folder: store.isHelper() ? "Your Proposal Writing OS folder, on this computer" : store.folderName() };
   }
   function ctx() { return { d: data, state: state, anim: anim, storeInfo: storeInfo, claude: claude }; }
 
@@ -225,7 +225,7 @@
     root.scrollTop = scroll;
     $("#viewTitle").textContent = view.title(c);
     $("#viewSub").textContent = view.sub ? view.sub(c) : "";
-    document.title = view.title(c) + " · Proposal OS";
+    document.title = view.title(c) + " · Proposal Writing OS";
   }
 
   // ============================================================
@@ -325,7 +325,7 @@
   }
 
   // ---------- Brain dump (shared, ../shared/js/braindump.js) ----------
-  // The button, V and the sorting are shared by every tool. Proposal OS adds "A client..." and
+  // The button, V and the sorting are shared by every tool. Proposal Writing OS adds "A client..." and
   // "A proposal..." to "What's it about?", and starts with the proposal that's open, if one is.
   if (window.TaskListOS.brainDump) window.TaskListOS.brainDump.register("proposals", {
     pickers: function () {
@@ -441,7 +441,7 @@
     switch (action) {
       case "connect":
         store.connect().catch(function (err) {
-          renderGate(err && err.kind === "wrong-folder" ? "That folder doesn't have your proposals in it. Choose your Proposal OS folder, the one with START-HERE.md in it." : "That didn't work. Please try again, and click Allow when Chrome asks.");
+          renderGate(err && err.kind === "wrong-folder" ? "That folder doesn't have your proposals in it. Choose your Proposal Writing OS folder, the one with START-HERE.md in it." : "That didn't work. Please try again, and click Allow when Chrome asks.");
         });
         break;
       case "reconnect": store.reconnect().catch(function () { renderGate(); }); break;

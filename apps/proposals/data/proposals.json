@@ -1,6 +1,6 @@
 {
   "about": [
-    "Your proposals. Claude and the Proposal OS app both read and write this file.",
+    "Your proposals. Claude and the Proposal Writing OS app both read and write this file.",
     "You never need to edit it by hand: ask Claude, or use the app at http://localhost:4747.",
     "Claude: the format is in apps/proposals/CLAUDE.md."
   ],

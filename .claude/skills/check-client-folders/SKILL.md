@@ -1,6 +1,6 @@
 ---
 name: check-client-folders
-description: Looks through the client folders, adds new clients to the Proposal OS app, notes what's in each folder and whether there's enough to write a proposal, and (if the person switched it on) writes proposals for new ready folders straight away. Use when they press Check for new folders (a scan request), say "check my client folders", "I've added a client", "anything new in my folders?", and on every proposals check-in.
+description: Looks through the client folders, adds new clients to the Proposal Writing OS app, notes what's in each folder and whether there's enough to write a proposal, and (if the person switched it on) writes proposals for new ready folders straight away. Use when they press Check for new folders (a scan request), say "check my client folders", "I've added a client", "anything new in my folders?", and on every proposals check-in.
 ---
 
 # Check the client folders

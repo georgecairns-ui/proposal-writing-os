@@ -5,7 +5,7 @@ description: Writes a complete client proposal in the business's own brand, pack
 
 # Write a proposal
 
-This is the whole point of Proposal OS: the person puts everything about a client in one folder, and you write the proposal. Do all of it yourself. Nobody is watching when the app starts you, so don't ask questions: make your best reading, and put anything you couldn't find in `gaps` so they see it.
+This is the whole point of Proposal Writing OS: the person puts everything about a client in one folder, and you write the proposal. Do all of it yourself. Nobody is watching when the app starts you, so don't ask questions: make your best reading, and put anything you couldn't find in `gaps` so they see it.
 
 The proposal follows one story, the same every time: **who they are, what's hurting, how we'll fix it, how we'll deliver it, the options (one recommended), and what happens next.** The client should finish it thinking "they really listened".
 
