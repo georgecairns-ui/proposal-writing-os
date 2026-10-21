@@ -26,3 +26,7 @@ The tool id (`proposals`) and app folder (`apps/proposals/`) are unchanged, so n
 3. **`TOOLKIT.md`** in the Drive toolkit folder: the same row.
 
 `VERSION` stays 6: no shared code changes.
+
+## Done, 21 October 2026
+
+The menu entry and the `ATTACHING.md` rows above are now the same in every toolkit repository (Task List OS, Pipeline OS, Skill and Folder Map OS, Proposal OS and Content Machine OS), by a pull request in each, together with the Skill and Folder Map OS entry, which was also out of date in some of them.
