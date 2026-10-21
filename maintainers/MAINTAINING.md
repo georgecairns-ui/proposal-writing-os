@@ -40,7 +40,7 @@ Proposal OS is tool 3 of the small business toolkit (planned as "Proposal Writer
 
 ## Open questions for George
 
-- **The catalogue rename** ("Proposal Writer OS" to "Proposal OS", repository `proposal-writer-os` to `proposal-writing-os`) needs to reach Task List OS and Pipeline OS too, or their locked menu entry and attach instructions point at a repository that doesn't exist. See `SHARED-CATALOGUE-RENAME.md`. `ATTACHING.md` is unchanged here (it's identical in every tool) and still says `proposal-writer-os`; it changes everywhere at once.
+- **The catalogue rename** reached every toolkit repository on 21 October 2026 (see `SHARED-CATALOGUE-RENAME.md`).
 - **Client folders outside the kit** (a synced Google Drive or Dropbox folder elsewhere on the computer) are read by Claude where they are, but the app can only show their path. Moving the helper to list those folders would be a shared change.
 - **Word output.** Proposals are a branded page and a PDF. A Word copy for people who live in Word was considered and left out for now.
 - The licence hasn't been reviewed by a solicitor (same as the other tools).
