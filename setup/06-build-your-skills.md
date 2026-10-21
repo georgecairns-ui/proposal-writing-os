@@ -4,7 +4,7 @@
 
 Goal: 3 to 5 skills written for this business, saved twice: in `.claude/skills/` so they work here straight away, and as files in `skills-to-upload/` that they add to Claude, so the same know-how works in every Claude conversation, on their phone and on the web. This is the moment they see Claude learn their business, so make it feel like a gift, not homework.
 
-A skill is a short set of instructions Claude follows for one job. The ones that come with Proposal OS are general. These are about **their** services, **their** prices and **their** way of selling.
+A skill is a short set of instructions Claude follows for one job. The ones that come with Proposal Writing OS are general. These are about **their** services, **their** prices and **their** way of selling.
 
 ## 7.1 Ask about their services
 
@@ -21,7 +21,7 @@ Write their answers into `context/business.md` (under "Services") and `context/r
 
 ## 7.2 Suggest the skills
 
-From their answers, `context/sales.md` and what you learned getting to know the business, suggest 3 to 5 skills, one line each, and ask which to build (the default is all of them). Choose from what this business actually does. For Proposal OS, their proposal skill is already built (`build-my-proposal-skill`); suggest ones that sit around it. Good candidates:
+From their answers, `context/sales.md` and what you learned getting to know the business, suggest 3 to 5 skills, one line each, and ask which to build (the default is all of them). Choose from what this business actually does. For Proposal Writing OS, their proposal skill is already built (`build-my-proposal-skill`); suggest ones that sit around it. Good candidates:
 
 - **Answer an objection**: their honest answers to the worries they hear most about a proposal (price, timing, "we'll do it ourselves"), from their emails and calls.
 - **Their services**: what they sell, who for, prices and what's included, and how to answer an enquiry about each one.
@@ -69,7 +69,7 @@ Try one straight away on something real, so they see it work. For example, draft
 
 Then tell them, in your own words:
 
-> I've built you 2 more skills: welcoming a new client and answering a quote request. They already work here. I've also saved them in the **skills-to-upload** folder inside Proposal OS, so you can add them to Claude and use them everywhere, including the Claude app on your phone.
+> I've built you 2 more skills: welcoming a new client and answering a quote request. They already work here. I've also saved them in the **skills-to-upload** folder inside Proposal Writing OS, so you can add them to Claude and use them everywhere, including the Claude app on your phone.
 >
 > To add them: open Claude (claude.ai or the Claude app) and go to **Customize**, then **Skills**. Press **+**, then **Create skill**, then **Upload a skill**, and choose a file from the skills-to-upload folder. Do it once for each file. It takes about a minute.
 

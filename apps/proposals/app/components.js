@@ -85,7 +85,7 @@
       '<div class="setup-card__body"><h2>Let’s set up your proposals</h2>' +
       '<p class="muted">It’s empty for now. Claude learns your brand, your packages and how you write in about 20 minutes, then writes your first proposal from a real client.</p>' +
       '<ol class="setup-card__steps">' +
-      "<li>Open Claude Code in your <strong>Proposal OS</strong> folder (in the Claude desktop app, the Code tab).</li>" +
+      "<li>Open Claude Code in your <strong>Proposal Writing OS</strong> folder (in the Claude desktop app, the Code tab).</li>" +
       "<li>Type " + say("/setup") + " and answer Claude’s questions. It asks for your website, logo and colours, your packages and prices, and any proposal you’d like it to copy.</li>" +
       "<li>Put everything about a client in their own folder. Claude writes the proposal in your brand, and you check it before it goes anywhere.</li>" +
       "</ol></div></section>";

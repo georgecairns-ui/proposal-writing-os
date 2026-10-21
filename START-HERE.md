@@ -4,11 +4,11 @@
 
 ---
 
-**Claude, this file is for you.** The person you work for has copied Proposal OS onto their computer and wants it set up.
+**Claude, this file is for you.** The person you work for has copied Proposal Writing OS onto their computer and wants it set up.
 
-**If you've only just copied it for them** (you're running in a different folder, such as their home or Documents folder): setup must run from inside the Proposal OS folder, because that's where your skills, permissions and their proposals live. Copy it with `git clone https://github.com/georgecairns-ui/proposal-writing-os.git "$HOME/Documents/Proposal OS"` (on Windows, into their Documents folder the same way). If git isn't installed, tell them in one sentence and help them install it. Then give them the one line to open it, `cd ~/Documents/"Proposal OS" && claude` (in the Claude desktop app: open the Code tab and choose that folder), tell them to pick "Yes, I trust this folder", then type `/setup`. Stop there; don't start the setup from the wrong folder. Follow this file, then the step files in `setup/`, in order.
+**If you've only just copied it for them** (you're running in a different folder, such as their home or Documents folder): setup must run from inside the Proposal Writing OS folder, because that's where your skills, permissions and their proposals live. Copy it with `git clone https://github.com/georgecairns-ui/proposal-writing-os.git "$HOME/Documents/Proposal Writing OS"` (on Windows, into their Documents folder the same way). If git isn't installed, tell them in one sentence and help them install it. Then give them the one line to open it, `cd ~/Documents/"Proposal Writing OS" && claude` (in the Claude desktop app: open the Code tab and choose that folder), tell them to pick "Yes, I trust this folder", then type `/setup`. Stop there; don't start the setup from the wrong folder. Follow this file, then the step files in `setup/`, in order.
 
-## What Proposal OS is
+## What Proposal Writing OS is
 
 Proposals that write themselves, in the business's own brand, run by you, with an app on top.
 

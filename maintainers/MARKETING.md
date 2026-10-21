@@ -1,4 +1,4 @@
-# Marketing Proposal OS
+# Marketing Proposal Writing OS
 
 **In one sentence:** put everything about a client in one folder, press one button, and get a proposal in your own brand with your own prices, ready to check and send.
 

@@ -9,7 +9,7 @@
 # What it does:
 #   1. Checks the files that ship are still blank templates, so nobody's real proposals,
 #      business notes or setup progress can go out by mistake. Stops if not.
-#   2. Copies the kit into a temporary folder called "Proposal OS", leaving out this
+#   2. Copies the kit into a temporary folder called "Proposal Writing OS", leaving out this
 #      maintainers folder, git history, old builds, backups and computer clutter.
 #   3. Checks the copy is complete and the data file is valid.
 #   4. Zips it as dist/proposal-writing-os.zip, replacing any older one.
@@ -20,7 +20,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIST="$ROOT/dist"
 STAGE="$(mktemp -d "${TMPDIR:-/tmp}/proposal-writing-os-build.XXXXXX")"
 trap 'rm -rf "$STAGE"' EXIT
-NAME="Proposal OS"
+NAME="Proposal Writing OS"
 OUT="$STAGE/$NAME"
 
 fail() { echo "RELEASE STOPPED: $1" >&2; exit 1; }
@@ -97,8 +97,8 @@ done
 for f in apps/proposals/data/proposals.json apps/proposals/menu.json apps/proposals/claude-jobs.json toolkit.json apps/installed.json apps/shared/catalogue.json; do
   python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$OUT/$f" || fail "$f is not valid"
 done
-# A fresh download lists only Proposal OS, and no test tool ever ships
-python3 -c 'import json,sys; t=json.load(open(sys.argv[1]))["tools"]; sys.exit(0 if [x["id"] for x in t]==["proposals"] else 1)' "$OUT/apps/installed.json" || fail "apps/installed.json must list only Proposal OS"
+# A fresh download lists only Proposal Writing OS, and no test tool ever ships
+python3 -c 'import json,sys; t=json.load(open(sys.argv[1]))["tools"]; sys.exit(0 if [x["id"] for x in t]==["proposals"] else 1)' "$OUT/apps/installed.json" || fail "apps/installed.json must list only Proposal Writing OS"
 [ ! -e "$OUT/apps/test-tool" ] || fail "the test tool is in the release"
 if grep -rIl $'—' "$OUT" >/dev/null 2>&1; then fail "an em dash slipped in: $(grep -rIl $'—' "$OUT" | head -3)"; fi
 SKILLS=$(find "$OUT/.claude/skills" -name SKILL.md | wc -l | tr -d ' ')

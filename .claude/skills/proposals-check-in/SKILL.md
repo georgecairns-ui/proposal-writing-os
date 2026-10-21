@@ -1,6 +1,6 @@
 ---
 name: proposals-check-in
-description: The regular Proposal OS check-in - finds new client folders and files, saves new client emails and calls into each client's folder, writes proposals that are waiting, and writes follow-ups for sent proposals gone quiet. Use when they say "check my proposals", "check in", "anything new?", on every scheduled run, and as part of another tool's check-in when Proposal OS is attached.
+description: The regular Proposal Writing OS check-in - finds new client folders and files, saves new client emails and calls into each client's folder, writes proposals that are waiting, and writes follow-ups for sent proposals gone quiet. Use when they say "check my proposals", "check in", "anything new?", on every scheduled run, and as part of another tool's check-in when Proposal Writing OS is attached.
 ---
 
 # Proposals check-in

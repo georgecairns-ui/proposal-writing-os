@@ -1,4 +1,4 @@
-# Proposal OS
+# Proposal Writing OS
 
 **Put everything about a client in one folder. Get a proposal in your brand.** A free kit from [Get AI Powers](https://getaipowers.com), run by Claude.
 
@@ -8,7 +8,7 @@ Nothing goes out without you. Claude writes; you approve it, save the PDF and se
 
 **See it first:** [a clickable demo with a made-up business](https://claude.ai/artifact/MQUm4uP9YM8PNCh4sPmhs7), opening on a finished proposal.
 
-Proposal OS is part of a toolkit of 9 free tools from Get AI Powers. The others (a task list, a pipeline, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
+Proposal Writing OS is part of a toolkit of 9 free tools from Get AI Powers. The others (a task list, a pipeline, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
 
 ## What happens when you type /setup
 
@@ -46,10 +46,10 @@ You copy the kit, open it in Claude Code and type **/setup**. In about 20 minute
 
 1. **Open Claude Code** in the Claude desktop app (the Code tab) or in the Terminal (on Windows, PowerShell). Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal OS" in my Documents, then tell me how to open it and set it up.
+   > Copy https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal Writing OS" in my Documents, then tell me how to open it and set it up.
 
    Claude copies everything onto your computer and gives you one line to open the new folder. In the desktop app, you choose the folder instead. (If your computer asks to install "command line developer tools" or Git, say yes; it's free and takes a few minutes.)
-3. **Open the Proposal OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude write your proposals, your business notes and your client folders, read web pages and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps. Press the down arrow, then Enter.
+3. **Open the Proposal Writing OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude write your proposals, your business notes and your client folders, read web pages and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps. Press the down arrow, then Enter.
 4. **Type `/setup`.**
 
 Then it opens your proposals and gives you the link, **http://localhost:4747**. Bookmark it.
@@ -66,7 +66,7 @@ Then it opens your proposals and gives you the link, **http://localhost:4747**. 
 
 ## Your information
 
-Your proposals, packages and client folders live in this folder on your computer. Claude reads your email and call recordings through the connections you approve, and saves short summaries into each client's folder. It never sends, deletes, pays or posts anything for you, and never sends a bot to your meetings. There's no Proposal OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
+Your proposals, packages and client folders live in this folder on your computer. Claude reads your email and call recordings through the connections you approve, and saves short summaries into each client's folder. It never sends, deletes, pays or posts anything for you, and never sends a bot to your meetings. There's no Proposal Writing OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
 
 ## Make it yours
 
@@ -74,7 +74,7 @@ Your colours and fonts, your cover, your section names, your packages, your temp
 
 ## Want it set up properly for you?
 
-Proposal OS works on its own. If you'd like help building your folders, business context and Claude skills around how you really sell, Get AI Powers can help. Find us at [getaipowers.com](https://getaipowers.com).
+Proposal Writing OS works on its own. If you'd like help building your folders, business context and Claude skills around how you really sell, Get AI Powers can help. Find us at [getaipowers.com](https://getaipowers.com).
 
 ## What's inside
 
@@ -91,7 +91,7 @@ skills-to-upload/      the skills Claude builds for your business, packed up to 
 files/                 your documents, with a folder per client in files/02-clients
 apps/                  the proposals app, its look (theme.css) and your proposals' look (proposals/brand/brand.css)
 docs/                  customising, privacy and safety
-maintainers/           for people developing Proposal OS itself
+maintainers/           for people developing Proposal Writing OS itself
 ```
 
 ## Licence

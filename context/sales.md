@@ -2,7 +2,7 @@
 
 Status: not filled in yet
 
-<!-- Claude: filled in during setup (in Proposal OS, setup/proposals-02-what-you-sell.md) and kept up to date by keep-context-fresh. Every proposal's "About you" and "What's getting in the way" lean on it. The packages and prices themselves live in the app (Packages). Keep it short, in the owner's words. Replace every line below. -->
+<!-- Claude: filled in during setup (in Proposal Writing OS, setup/proposals-02-what-you-sell.md) and kept up to date by keep-context-fresh. Every proposal's "About you" and "What's getting in the way" lean on it. The packages and prices themselves live in the app (Packages). Keep it short, in the owner's words. Replace every line below. -->
 
 ## What we sell
 
