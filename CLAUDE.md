@@ -50,7 +50,7 @@ If `context/proposals.md` or the packages aren't filled in, proposals can't do t
 | **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Proposal Writing OS's pages: Proposals (every proposal by where it's up to; each opens as the finished document), Clients (one card per client folder, with Write proposal), Packages, and Preferences (the cog). The **Brain dump** button at the top (shared by every tool) records a voice note or a typed one and starts you straight away. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
 | `Open Proposals.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/proposals/` | The proposals app. `CLAUDE.md` in there explains its data. Their proposals, packages and clients are in `apps/proposals/data/proposals.json`. How proposals look is `apps/proposals/brand/brand.css` |
-| `apps/shared/` | The app's look: `theme.css` holds every colour and font, `images/` their logo. Also the toolkit menu: `catalogue.json` lists all 9 tools and the booking link |
+| `apps/shared/` | The app's look: `theme.css` holds every colour and font, `images/` their logo. Also the toolkit menu: `catalogue.json` lists all 8 tools and the booking link |
 | `apps/installed.json` | The tools in this folder. The menu and the helper both read it |
 | `context/` | Your notes about the business (see above) |
 | `files/02-clients/` | **One folder per client, with everything about them.** This is how they work: drop things in a client's folder, press Write proposal. You keep each folder complete with summaries of their emails and calls |
@@ -102,7 +102,7 @@ When you learn something lasting (a new service or price, a new kind of client, 
 
 ## Other tools in the toolkit
 
-Proposal Writing OS is one of 9 free tools from Get AI Powers. The app's menu shows the others under "More tools" with a padlock. `apps/shared/catalogue.json` lists every tool, what it does and the booking link.
+Proposal Writing OS is one of 8 free tools from Get AI Powers. The app's menu shows the others under "More tools" with a padlock. `apps/shared/catalogue.json` lists every tool, what it does and the booking link.
 
 - If they ask about a locked tool, or say they want one: explain what it does in plain words (its description in the catalogue is a good start), say Get AI Powers sets it up with them on a free call, and give them the booking link (`booking.url` in the catalogue). Say it once. Never push it.
 - If they say they're on that call, or that Get AI Powers has told them to go ahead: follow `ATTACHING.md` in this folder to attach the tool.

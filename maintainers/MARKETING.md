@@ -24,4 +24,4 @@ Time-saving claims are marked "to check": test them on real businesses before us
 
 ## Where it leads
 
-The app's menu shows the other 8 tools, locked, with Book a free call. The install guide (non-member format, like Task List OS's and Pipeline OS's) is still to make.
+The app's menu shows the other 7 tools, locked, with Book a free call. The install guide (non-member format, like Task List OS's and Pipeline OS's) is still to make.
