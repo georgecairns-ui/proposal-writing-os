@@ -8,7 +8,7 @@ Nothing goes out without you. Claude writes; you approve it, save the PDF and se
 
 **See it first:** [a clickable demo with a made-up business](https://claude.ai/artifact/MQUm4uP9YM8PNCh4sPmhs7), opening on a finished proposal.
 
-Proposal Writing OS is part of a toolkit of 8 free tools from Get AI Powers. The others (a task list, a pipeline, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
+Proposal Writing OS is part of a toolkit of 7 free tools from Get AI Powers. The others (a task list, a pipeline, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
 
 ## What happens when you type /setup
 
