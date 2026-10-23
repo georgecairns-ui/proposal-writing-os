@@ -50,7 +50,7 @@ If `context/proposals.md` or the packages aren't filled in, proposals can't do t
 | **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Proposal Writing OS's pages: Proposals (every proposal by where it's up to; each opens as the finished document), Clients (one card per client folder, with Write proposal), Packages, and Preferences (the cog). The **Brain dump** button at the top (shared by every tool) records a voice note or a typed one and starts you straight away. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
 | `Open Proposals.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/proposals/` | The proposals app. `CLAUDE.md` in there explains its data. Their proposals, packages and clients are in `apps/proposals/data/proposals.json`. How proposals look is `apps/proposals/brand/brand.css` |
-| `apps/shared/` | The app's look: `theme.css` holds every colour and font, `images/` their logo. Also the toolkit menu: `catalogue.json` lists all 8 tools and the booking link |
+| `apps/shared/` | The app's look: `theme.css` holds every colour and font, `images/` their logo. Also the toolkit menu: `catalogue.json` lists all 7 tools and the booking link |
 | `apps/installed.json` | The tools in this folder. The menu and the helper both read it |
 | `context/` | Your notes about the business (see above) |
 | `files/02-clients/` | **One folder per client, with everything about them.** This is how they work: drop things in a client's folder, press Write proposal. You keep each folder complete with summaries of their emails and calls |
