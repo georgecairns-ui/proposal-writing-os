@@ -36,7 +36,8 @@ In Claude Code, every skill is also a command: type `/` and its name, for exampl
 | `connect-a-tool` | "Connect my Gmail" | Claude walks you through connecting an app safely |
 | `match-my-brand` | "Make the app match my brand" | Your colours, font and logo on the app. For your proposals' look, say "make my proposals match my brand" |
 | `setup` | `/setup` | Runs the setup, or carries on where it left off |
-| `open-task-list` | "Open my proposals" | Starts the app if needed and gives you the link, http://localhost:4747 |
+| `open-the-app` | "Open the app", "Open my proposals" | Starts the app if needed and gives you the link, http://localhost:4747 |
+| `get-updates` | "Get the latest version", "any updates?" | Your copy brought up to date with a safe backup first. Your records, notes, skills and brand stay exactly as they are |
 | `keep-context-fresh` | (automatic) | When you mention a new service, price or way of working, Claude offers to update its notes and your proposal skill |
 
 ## The rules every skill follows

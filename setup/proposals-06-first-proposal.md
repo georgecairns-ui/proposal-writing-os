@@ -6,7 +6,7 @@ Goal: a real proposal, for a real client, in their brand, before setup ends. Thi
 
 1. Pick the client who's most ready: `ready: true`, a live conversation, and the most in their folder. Tell them which and why in one line ("Hollins Lettings: you had the discovery call last week and Dev's confirmed the budget by email").
 2. Add a write request for them and follow `.claude/skills/write-a-proposal`, exactly as the app's Write proposal button would.
-3. Start the app if it isn't running (`.claude/skills/open-task-list`) and, with their yes, open **http://localhost:4747/proposals/** in their browser.
+3. Start the app if it isn't running (`.claude/skills/open-the-app`) and, with their yes, open **http://localhost:4747/proposals/** in their browser.
 
 ## 10.2 Walk them through it (briefly)
 

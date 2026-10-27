@@ -47,7 +47,7 @@ If `context/proposals.md` or the packages aren't filled in, proposals can't do t
 
 | Folder | What's in it |
 |---|---|
-| **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Proposal Writing OS's pages: Proposals (every proposal by where it's up to; each opens as the finished document), Clients (one card per client folder, with Write proposal), Packages, and Preferences (the cog). The **Brain dump** button at the top (shared by every tool) records a voice note or a typed one and starts you straight away. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
+| **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Proposal Writing OS's pages: Proposals (every proposal by where it's up to; each opens as the finished document), Clients (one card per client folder, with Write proposal), Packages, and Preferences (the cog). The **Brain dump** button at the top (shared by every tool) records a voice note or a typed one and starts you straight away. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-the-app` |
 | `Open Proposals.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/proposals/` | The proposals app. `CLAUDE.md` in there explains its data. Their proposals, packages and clients are in `apps/proposals/data/proposals.json`. How proposals look is `apps/proposals/brand/brand.css` |
 | `apps/shared/` | The app's look: `theme.css` holds every colour and font, `images/` their logo. Also the toolkit menu: `catalogue.json` lists all 7 tools and the booking link |
@@ -78,7 +78,7 @@ When a request matches a skill in `.claude/skills/`, read that skill's `SKILL.md
 | "Make the app match my brand", "put our logo on it" | `.claude/skills/match-my-brand` (then offer the proposals too) |
 | "Sort my brain dump", a messy note (and every note from the Brain dump button) | `.claude/skills/sort-brain-dump` (shared by every tool; it hands proposals to `sort-proposals-brain-dump`) |
 | "Set me up", "carry on setting up" | `.claude/skills/setup` |
-| "Open my proposals", "it's not loading" | `.claude/skills/open-task-list` (it starts the app for every tool in this folder) |
+| "Open my proposals", "it's not loading" | `.claude/skills/open-the-app` (it starts the app for every tool in this folder) |
 | "Make this sound less robotic", any email you write | `.claude/skills/human-email` |
 | "Write it like me", "learn how I write" | `.claude/skills/write-like-me` |
 | "Chase this invoice", "they haven't paid" | `.claude/skills/polite-chaser` |

@@ -62,3 +62,4 @@ Mention it once. Never suggest Proposal Writing OS is broken without it.
    - Whether you're checking in automatically, and when.
    - The phrases that do most of the work: "write a proposal for...", "make it shorter", "chase Marlow", "rebuild my proposal skill". In Claude Code each skill also works as a command, for example `/write-a-proposal`.
    - That they can change their packages and prices on the **Packages** page, and the sections and sign-off in **Preferences**.
+   - That they can say "get the latest version" any time and you will bring the app up to date, keeping everything of theirs.
