@@ -1,5 +1,5 @@
 /*
-  Checks the proposals model (apps/proposals/app/model.js): the price snapshot, pence and the sentAt fix.
+  Checks the proposals model (apps/proposals/app/model.js): the price snapshot (packages and extras), pence and the sentAt fix.
   Run: node maintainers/test-model.js
   It loads model.js with a tiny stand-in for the browser, so nothing is written anywhere.
   Exits 1 if any check fails.
@@ -32,7 +32,8 @@ const clone = function (x) { return JSON.parse(JSON.stringify(x)); };
 // A data file as it was before the snapshot existed: options hold only a packageId
 function oldFile() {
   const opt = function (id, rec) { return { packageId: id, recommended: !!rec, why: "x" }; };
-  const prop = function (id, status, pkgId) { return { id: id, status: status, title: id, createdAt: "2026-09-01T10:00:00Z", sentAt: "2026-09-02T10:00:00Z", sections: { investment: { options: [opt(pkgId, true)], extras: [] } } }; };
+  const ext = function (id, qty) { return { extraId: id, qty: qty || 1 }; };
+  const prop = function (id, status, pkgId, extras) { return { id: id, status: status, title: id, createdAt: "2026-09-01T10:00:00Z", sentAt: "2026-09-02T10:00:00Z", sections: { investment: { options: [opt(pkgId, true)], extras: extras || [] } } }; };
   return {
     formatVersion: 1,
     settings: { vatRegistered: true, vatRate: 20 },
@@ -42,7 +43,12 @@ function oldFile() {
       { id: "pk-day", name: "Workshop", price: 600, billing: "per-day" },
       { id: "pk-gone", name: "Old thing", price: 1000, billing: "one-off" }
     ],
-    proposals: [prop("sent-site", "sent", "pk-site"), prop("won-ret", "won", "pk-ret"), prop("draft-site", "draft", "pk-site"), prop("lost-gone", "lost", "pk-gone"), prop("appr", "approved", "pk-site"), prop("sent-day", "sent", "pk-day")]
+    extras: [
+      { id: "x-photo", name: "Photography day", summary: "On site", price: 650.5, billing: "one-off" },
+      { id: "x-host", name: "Hosting", price: 20, billing: "monthly" }
+    ],
+    proposals: [prop("sent-site", "sent", "pk-site", [ext("x-photo", 2), ext("x-host")]), prop("won-ret", "won", "pk-ret", [ext("x-host")]), prop("draft-site", "draft", "pk-site", [ext("x-photo", 2)]),
+      prop("lost-gone", "lost", "pk-gone", [ext("x-photo")]), prop("appr", "approved", "pk-site", [ext("x-photo")]), prop("sent-day", "sent", "pk-day")]
   };
 }
 function figures(d, id) {
@@ -149,6 +155,87 @@ test("day and hourly rates are left out of the totals", function () {
   const n = M.numbers(d);
   assert.strictEqual(n.sentRates, 1);
   assert.strictEqual(n.sentValue, 3000.5);
+});
+
+// The extras on a proposal, as the doc shows them
+function extraFigures(d, id) {
+  return M.proposalById(d, id).sections.investment.extras.map(function (e) {
+    const x = M.extraPrice(d, e);
+    return x && { name: x.extra.name, summary: x.extra.summary || "", billing: x.extra.billing, qty: x.qty, total: x.total, vat: x.vat, gross: x.gross };
+  });
+}
+
+test("an old file's extras load with exactly the same numbers", function () {
+  const d = M.normalise(clone(oldFile()));
+  // Figures the old (live price) version would have worked out, written out by hand
+  assert.deepStrictEqual(extraFigures(d, "sent-site"), [
+    { name: "Photography day", summary: "On site", billing: "one-off", qty: 2, total: 1301, vat: 260.2, gross: 1561.2 },
+    { name: "Hosting", summary: "", billing: "monthly", qty: 1, total: 20, vat: 4, gross: 24 }
+  ]);
+});
+
+test("extras on sent, won, lost and approved proposals get a snapshot on first load; drafts do not", function () {
+  const d = M.normalise(clone(oldFile()));
+  ["sent-site", "won-ret", "lost-gone", "appr"].forEach(function (id) {
+    M.proposalById(d, id).sections.investment.extras.forEach(function (e) { assert.ok(e.snapshot, id + " " + e.extraId + " has a snapshot"); });
+  });
+  assert.strictEqual(M.proposalById(d, "draft-site").sections.investment.extras[0].snapshot, undefined);
+  assert.deepStrictEqual(clone(M.proposalById(d, "sent-site").sections.investment.extras[0].snapshot),
+    { extraId: "x-photo", name: "Photography day", price: 650.5, billing: "one-off", summary: "On site" });
+});
+
+test("editing an extra's name, price or billing does not move a sent proposal, but does move a draft", function () {
+  const d = M.normalise(clone(oldFile()));
+  const was = extraFigures(d, "sent-site"), wasWon = extraFigures(d, "won-ret"), wasAppr = extraFigures(d, "appr");
+  const edited = clone(d.extras);
+  Object.assign(edited.find(function (x) { return x.id === "x-photo"; }), { name: "Photo shoot", price: 900, billing: "per-day" });
+  edited.find(function (x) { return x.id === "x-host"; }).price = 35;
+  M.mut.setPackages(d, d.packages, edited, {});
+  M.normalise(d);
+  assert.deepStrictEqual(extraFigures(d, "sent-site"), was);
+  assert.deepStrictEqual(extraFigures(d, "won-ret"), wasWon);
+  assert.deepStrictEqual(extraFigures(d, "appr"), wasAppr);
+  const draft = extraFigures(d, "draft-site")[0];
+  assert.strictEqual(draft.name, "Photo shoot");
+  assert.strictEqual(draft.total, 1800);
+});
+
+test("removing an extra keeps it on sent, won and lost proposals, and drops it from a draft", function () {
+  const d = M.normalise(clone(oldFile()));
+  const was = extraFigures(d, "lost-gone"), wasSent = extraFigures(d, "sent-site");
+  M.mut.setPackages(d, d.packages, [], {});
+  M.normalise(d);
+  assert.deepStrictEqual(extraFigures(d, "lost-gone"), was);
+  assert.deepStrictEqual(extraFigures(d, "sent-site"), wasSent);
+  assert.deepStrictEqual(extraFigures(d, "draft-site"), [null]);
+});
+
+test("a draft's extras are snapshotted when it is approved or sent, and keep their price after", function () {
+  ["approved", "sent"].forEach(function (to) {
+    const d = M.normalise(clone(oldFile()));
+    M.mut.setStatus(d, "draft-site", to);
+    assert.ok(M.proposalById(d, "draft-site").sections.investment.extras[0].snapshot, to);
+    d.extras.find(function (x) { return x.id === "x-photo"; }).price = 1;
+    assert.strictEqual(extraFigures(d, "draft-site")[0].total, 1301, to);
+  });
+});
+
+test("swapping the extra on a sent proposal takes a fresh snapshot; changing qty keeps the price", function () {
+  const d = M.normalise(clone(oldFile()));
+  const e = M.proposalById(d, "sent-site").sections.investment.extras[0];
+  d.extras.find(function (x) { return x.id === "x-photo"; }).price = 1;
+  e.qty = 3;
+  assert.strictEqual(M.extraPrice(d, e).total, 1951.5);
+  e.extraId = "x-host";
+  M.normalise(d);
+  assert.strictEqual(M.extraPrice(d, e).extra.name, "Hosting");
+  assert.strictEqual(e.snapshot.extraId, "x-host");
+});
+
+test("the proposal doc shows extras from the snapshot", function () {
+  const src = fs.readFileSync(path.join(dir, "doc.js"), "utf8");
+  assert.ok(/M\.extraPrice\(d, e\)/.test(src), "doc.js prices extras through M.extraPrice");
+  assert.ok(!/M\.extraById/.test(src), "doc.js reads an extra live with M.extraById");
 });
 
 if (failed) { console.log("\n" + failed + " failed"); process.exit(1); }
