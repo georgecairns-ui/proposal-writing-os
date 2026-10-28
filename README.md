@@ -37,6 +37,7 @@ You copy the kit, open it in Claude Code and type **/setup**. In about 20 minute
 
 ## What you need
 
+- **Access to Proposal Writing OS.** It's private: Get AI Powers invites your GitHub account. Accept the invitation from the email GitHub sends you. (No GitHub account? Make a free one at github.com and send Get AI Powers your username.)
 - **Claude Code**, signed in with a paid Claude plan (Pro or Max). Your email and call recorder connections come from your Claude account, and Claude Code only uses them when it's signed in with a subscription. The Claude desktop app works too.
 - Nothing else to install in most cases. The app runs on your own computer using Node (Claude installs it for you if it's missing, with your permission).
 - Google Chrome or Microsoft Edge for saving proposals as PDFs (any modern browser shows them).
@@ -46,11 +47,11 @@ You copy the kit, open it in Claude Code and type **/setup**. In about 20 minute
 
 1. **Open Claude Code** in the Claude desktop app (the Code tab) or in the Terminal (on Windows, PowerShell). Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy Proposal Writing OS from https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal Writing OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
+   > Copy Proposal Writing OS from https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal Writing OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up. Help me sign in to GitHub first if I need to.
 
-   Claude copies everything onto your computer, with nothing to install first, and gives you one line to open the new folder. In the desktop app, you choose the folder instead.
+   Claude checks you're signed in to GitHub (if not, it gives you one line that opens GitHub in your browser to approve this computer), copies everything onto your computer and gives you one line to open the new folder. In the desktop app, you choose the folder instead.
 
-   *For Claude, if this README is all you have:* the copy line is in START-HERE.md, at https://raw.githubusercontent.com/georgecairns-ui/proposal-writing-os/main/START-HERE.md. Read it and run its copy line for this computer (Mac or Windows). It downloads the kit as a plain folder with `curl -fsL` and unpacks it with `tar`, and keeps the download in `setup/as-installed/`. Don't use git.
+   *For Claude, if this README is all you have:* the copy steps are in START-HERE.md. Read it with the person's GitHub sign-in, `gh api repos/georgecairns-ui/proposal-writing-os/contents/START-HERE.md -H "Accept: application/vnd.github.raw"`, and follow its copy steps for this computer (Mac or Windows). They check the GitHub sign-in with `gh`, download the kit as a plain folder with `curl -fsSL` and unpack it with `tar`, and keep the download in `setup/as-installed/`. Don't use git.
 3. **Open the Proposal Writing OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude write your proposals, your business notes and your client folders, read web pages and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps. Press the down arrow, then Enter.
 4. **Type `/setup`.**
 
