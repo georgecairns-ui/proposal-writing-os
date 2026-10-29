@@ -1,6 +1,6 @@
 ---
 name: match-my-brand
-description: Make the app look like the person's own business: their brand colours, font and logo, taken from their website or brand guidelines. Use during setup (step 5), or whenever someone says "make it match my brand", "use our colours", "put our logo on it" or "change the font to ours".
+description: Make the app look like the person's own business: their brand colours, font and logo, taken from their website or brand guidelines. Use during setup (step 2), or whenever someone says "make it match my brand", "use our colours", "put our logo on it" or "change the font to ours".
 ---
 # Match my brand
 

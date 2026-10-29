@@ -77,4 +77,4 @@ Menus change. If what they see doesn't match, ask them to describe it and help t
 
 Offer once: "Want me to open the folder for you?" If yes, open it in Finder or File Explorer.
 
-Tick step 7, noting which skills you built.
+Tick step 9, noting which skills you built.

@@ -24,7 +24,7 @@ Default for every app: Claude may read, and prepare drafts where the app allows.
 
 ## Your own skills
 
-<!-- Claude: the skills you built in setup step 6, one line each. They live in .claude/skills/ and are packed in skills-to-upload/. -->
+<!-- Claude: the skills you built in setup step 9, one line each. They live in .claude/skills/ and are packed in skills-to-upload/. -->
 
 | Skill | What it does |
 |---|---|
