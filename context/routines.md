@@ -2,7 +2,7 @@
 
 Status: not filled in yet
 
-<!-- Claude: fill this in during setup step 4. Each recurring job also becomes a task in the task list with its next due date. -->
+<!-- Claude: fill this in during setup step 7. Each recurring job also becomes a reminder with its next due date. -->
 
 ## Working pattern
 

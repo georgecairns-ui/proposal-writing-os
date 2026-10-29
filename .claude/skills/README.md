@@ -16,7 +16,7 @@ In Claude Code, every skill is also a command: type `/` and its name, for exampl
 | `follow-up-a-proposal` | "Chase Marlow", "who hasn't replied?" | A friendly follow-up for proposals gone quiet, with a real reason to reply |
 | `import-a-proposal-template` | "Here's our template" | Claude copies your proposal's order, headings, standard wording and look |
 | `build-my-proposal-skill` | "Rebuild my proposal skill" | Your own skill, with your packages, prices, template and tone, brought up to date and packed up to add to Claude |
-| `proposals-check-in` | "Check my proposals" (runs every hour if you turned that on) | New client emails and calls saved into their folders, new clients picked up, waiting proposals written, follow-ups drafted |
+| `proposals-check-in` | "Check my proposals" (runs a few times a day, at times you agreed) | New client emails and calls saved into their folders, new clients picked up, waiting proposals written, follow-ups drafted |
 | `sort-brain-dump` | Press **Brain dump** on any page (or V) and talk | Claude sorts it and sends each part to the right tool |
 | `sort-proposals-brain-dump` | (used by `sort-brain-dump`) | The proposals part: notes filed in client folders, proposals started or changed |
 

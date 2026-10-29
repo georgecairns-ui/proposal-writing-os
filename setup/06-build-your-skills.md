@@ -1,12 +1,12 @@
 # More skills for their business
 
-> Used by step 9 (`setup/proposals-05-your-proposal-skill.md`), after their proposal skill is built, and whenever they ask for a new skill. Section 7.3 is the format every skill follows.
+> Used by step 9 (`setup/proposals-05-your-proposal-skill.md`), after their proposal skill is built, and whenever they ask for a new skill. Section 9.3 is the format every skill follows.
 
 Goal: 3 to 5 skills written for this business, saved twice: in `.claude/skills/` so they work here straight away, and as files in `skills-to-upload/` that they add to Claude, so the same know-how works in every Claude conversation, on their phone and on the web. This is the moment they see Claude learn their business, so make it feel like a gift, not homework.
 
 A skill is a short set of instructions Claude follows for one job. The ones that come with Proposal Writing OS are general. These are about **their** services, **their** prices and **their** way of selling.
 
-## 7.1 Ask about their services
+## 9.1 Ask about their services
 
 You already know their services, customers and how a sale goes from `context/sales.md`. Don't ask question 1 or 2 below if that answers them. Ask only what you don't know, in one friendly message:
 
@@ -19,7 +19,7 @@ You already know their services, customers and how a sale goes from `context/sal
 
 Write their answers into `context/business.md` (under "Services") and `context/routines.md`, so everything else you do uses them too.
 
-## 7.2 Suggest the skills
+## 9.2 Suggest the skills
 
 From their answers, `context/sales.md` and what you learned getting to know the business, suggest 3 to 5 skills, one line each, and ask which to build (the default is all of them). Choose from what this business actually does. For Proposal Writing OS, their proposal skill is already built (`build-my-proposal-skill`); suggest ones that sit around it. Good candidates:
 
@@ -33,7 +33,7 @@ From their answers, `context/sales.md` and what you learned getting to know the 
 
 Name each skill in plain words with hyphens, for example `fern-and-finch-quotes`. Lowercase letters, numbers and hyphens only, 64 characters at most.
 
-## 7.3 Write each skill
+## 9.3 Write each skill
 
 For each one, write a folder with a `SKILL.md` inside, following the format of the skills in `.claude/skills/` (for example `.claude/skills/polite-chaser/SKILL.md`):
 
@@ -63,7 +63,7 @@ Save each skill in 2 places:
 
 Add each skill to the table in `skills-to-upload/README.md` (name and one line on what it does), and list them in `context/tools.md` under "Your own skills".
 
-## 7.4 Show them, then tell them how to add them to Claude
+## 9.4 Show them, then tell them how to add them to Claude
 
 Try one straight away on something real, so they see it work. For example, draft the follow-up to their most recent sales call using the new follow-up skill, and show it in chat.
 
@@ -77,4 +77,4 @@ Menus change. If what they see doesn't match, ask them to describe it and help t
 
 Offer once: "Want me to open the folder for you?" If yes, open it in Finder or File Explorer.
 
-Tick step 7, noting which skills you built.
+Tick step 9, noting which skills you built.

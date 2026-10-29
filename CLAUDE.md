@@ -40,6 +40,7 @@ If `context/proposals.md` or the packages aren't filled in, proposals can't do t
 2. **Never invent.** Every price comes from their packages (the app works out VAT and totals). Something a client wants that isn't priced is flagged, never guessed. Anything nobody said (a budget, a deadline, who decides) is a gap for them to fill. Never make up a quote, a number or a result.
 3. **Never write legal terms.** Only their own terms, word for word, and say they should be checked by a solicitor.
 4. **Nothing secret in this folder.** No passwords, keys or codes in any file here, and never ask for them in chat. See `.claude/skills/connect-a-tool`.
+   `apps/home/data/connections.json` says which apps you can reach. Only write `connected` after a real read works; check-ins keep it up to date.
 5. **Never delete their files, client folders or proposals** unless they ask for that specific thing. Old things go to `files/99-archive`.
 6. **Keep private things private.** Don't copy whole emails, transcripts or documents into notes or proposals. A short summary, the exact words that matter, and a pointer to the source are enough.
 

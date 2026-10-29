@@ -12,19 +12,19 @@ Proposal Writing OS is part of a toolkit of 7 free tools from Get AI Powers. The
 
 ## What happens when you type /setup
 
-You copy the kit, open it in Claude Code and type **/setup**. In about 20 minutes, Claude:
+You copy the kit, open it in the Claude desktop app (the Code tab) and type **/setup**. In 30 to 40 minutes, Claude:
 
 - **Learns your brand.** From your website, your logo and any brand guidelines: your colours, fonts and logo go on every proposal, and on the app.
 - **Learns what you sell.** Your packages and prices, VAT, payment terms, how you deliver and what happens when someone says yes. It drafts all of it from your website first, so you mostly just correct it.
 - **Copies your template.** Got a proposal you're proud of? Drop it in. Claude copies its order, headings and wording.
-- **Connects your email and call recorder,** so it can read what each client asked for, what's hurting them and what they confirmed in writing.
-- **Sets up a folder for each client** and fills it from your emails and calls.
+- **Connects your email, calendar and call recorder,** so it can read what each client asked for, what's hurting them and what they confirmed in writing.
+- **Sets up a folder for each client.** It reads your last 30 days of email to find your clients and the proposals you've already sent, then fills each client's folder from your emails and calls.
 - **Builds your own proposal skill,** named after your business, saved in the **skills-to-upload** folder so you can add it to Claude and write proposals your way everywhere, including on your phone.
 - **Writes your first proposal** for a real client, before setup ends.
 
 ## What it does
 
-- **One folder per client, one click.** Everything about a client goes in their folder. On the **Clients** page, press **Write proposal**. New client folders can get a proposal by themselves.
+- **One folder per client, one click.** Everything about a client goes in their folder. On the **Clients** page, press **Write proposal**. New client folders can get a proposal by themselves: if you'd like, Claude checks in a few times a day, at times you choose, for new client folders, emails and calls.
 - **The same strong story every time.** A cover, a short opening note, a contents page, then: about them, what's getting in the way, how you'll fix it, how you'll deliver it, your options, and next steps. Rename, reorder or switch off any section.
 - **Their pain, in their words.** Claude uses the exact things clients said on calls and in emails, so the proposal reads like you really listened.
 - **Your prices, never guesses.** Options come from your saved packages; the app works out every price, VAT and total. Anything a client wants that isn't on your price list is flagged for you to price. Anything nobody said is listed for you to fill in.
@@ -37,25 +37,27 @@ You copy the kit, open it in Claude Code and type **/setup**. In about 20 minute
 
 ## What you need
 
-- **Access to Proposal Writing OS.** It's private: Get AI Powers invites your GitHub account. Accept the invitation from the email GitHub sends you. (No GitHub account? Make a free one at github.com and send Get AI Powers your username.)
-- **Claude Code**, signed in with a paid Claude plan (Pro or Max). Your email and call recorder connections come from your Claude account, and Claude Code only uses them when it's signed in with a subscription. The Claude desktop app works too.
+- **The Claude desktop app** (setup runs in its Code tab).
+- **A paid Claude plan (Pro or Max)**, signed in to the desktop app. Your email, calendar and call recorder connections come from your Claude account, so Claude can only use them when you're signed in.
 - Nothing else to install in most cases. The app runs on your own computer using Node (Claude installs it for you if it's missing, with your permission).
 - Google Chrome or Microsoft Edge for saving proposals as PDFs (any modern browser shows them).
-- About 20 minutes, once.
+- About 30 to 40 minutes, once.
 
 ## Get started
 
-1. **Open Claude Code** in the Claude desktop app (the Code tab) or in the Terminal (on Windows, PowerShell). Any folder will do for this first step.
+1. **Open the Claude desktop app and choose the Code tab.** Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy Proposal Writing OS from https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal Writing OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up. Help me sign in to GitHub first if I need to.
+   > Copy Proposal Writing OS from https://github.com/georgecairns-ui/proposal-writing-os into a folder called "Proposal Writing OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
 
-   Claude checks you're signed in to GitHub (if not, it gives you one line that opens GitHub in your browser to approve this computer), copies everything onto your computer and gives you one line to open the new folder. In the desktop app, you choose the folder instead.
+   Claude copies everything onto your computer and tells you how to open the new folder. In the desktop app, you choose the folder in the Code tab.
 
-   *For Claude, if this README is all you have:* the copy steps are in START-HERE.md. Read it with the person's GitHub sign-in, `gh api repos/georgecairns-ui/proposal-writing-os/contents/START-HERE.md -H "Accept: application/vnd.github.raw"`, and follow its copy steps for this computer (Mac or Windows). They check the GitHub sign-in with `gh`, download the kit as a plain folder with `curl -fsSL` and unpack it with `tar`, and keep the download in `setup/as-installed/`. Don't use git.
-3. **Open the Proposal Writing OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude write your proposals, your business notes and your client folders, read web pages and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps. Press the down arrow, then Enter.
+   *For Claude, if this README is all you have:* read START-HERE.md on the repository page at https://github.com/georgecairns-ui/proposal-writing-os, then copy the folder with the Mac or Windows line in it.
+3. **In the Code tab, choose the Proposal Writing OS folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude write your proposals, your business notes and your client folders, read web pages and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps.
 4. **Type `/setup`.**
 
 Then it opens your proposals and gives you the link, **http://localhost:4747**. Bookmark it.
+
+Apps connect through Claude's Connectors: each one asks you to sign in on that app's own page, and you never paste a password or a key anywhere. An app with no Claude connector is read from a CSV or PDF export that you drop in the files folder.
 
 ## Every day
 
@@ -87,9 +89,9 @@ toolkit.json           what this tool is, for attaching it to the others in the 
 ATTACHING.md           how the toolkit's tools attach to each other
 CLAUDE.md              Claude's standing instructions in this folder
 Open Proposals.html    double-click to open your proposals (or use the link Claude gives you)
-setup/                 the 11 setup steps, a guide per app in connections/, and the key scripts
+setup/                 the 12 setup steps, and a guide per app in connections/
 context/               Claude's notes about your business; proposals.md is how you write proposals
-.claude/skills/        saved know-how; each one also works as a command in Claude Code
+.claude/skills/        saved know-how; each one also works as a command in Claude
 skills-to-upload/      the skills Claude builds for your business, packed up to add to Claude
 files/                 your documents, with a folder per client in files/02-clients
 apps/                  the proposals app, its look (theme.css) and your proposals' look (proposals/brand/brand.css)

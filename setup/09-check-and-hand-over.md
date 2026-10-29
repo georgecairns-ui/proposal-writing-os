@@ -1,4 +1,4 @@
-# Step 11: check and hand over
+# Step 12: check and hand over
 
 Goal: prove it all works, both ways, then leave them with a clear picture of what they've got.
 
@@ -13,7 +13,7 @@ Check these yourself. Fix anything that fails, then check again.
 - [ ] Every client has a folder that exists, `sources` that match what's in it, and `ready` with `missing` when it's false.
 - [ ] Their first proposal is `draft` (or further), with every section they have switched on, exactly one recommended option, `coverEmail`, and `gaps` and `unpriced` where they apply. No numbers in the words that aren't theirs.
 - [ ] No requests left `waiting`.
-- [ ] Nothing that sends, deletes or posts is in `.claude/settings.json` or `.claude/settings.local.json`.
+- [ ] Nothing that sends, deletes or posts is in `.claude/settings.json` or `.claude/settings.local.json`. `.claude/settings.local.json` holds only the read tools they agreed to in step 11.
 
 **Their brand**
 - [ ] `apps/proposals/brand/brand.css` has their colours and fonts in the first block, and any font it names is a file in `apps/shared/fonts/`.
@@ -22,6 +22,11 @@ Check these yourself. Fix anything that fails, then check again.
 **Connections and notes**
 - [ ] `context/sales.md` and `context/proposals.md` say "Status: filled in". If not, setup isn't finished: go back to step 3.
 - [ ] Every connected app is in `context/tools.md` with what you may and may not do.
+- [ ] Email is `connected` in `apps/home/data/connections.json` with a checked date from this setup, or `no-connector`, said plainly.
+- [ ] Calendar is checked the same way, separately: `connected` with a checked date from this setup, or `no-connector`, said plainly. (When they come from different providers, each has its own row.)
+- [ ] Their call recorder, and the cloud drive their client files live in (step 8) if there is one, is `connected`, `export-only`, `no-connector` or `needs-attention`. Other apps they named may stay `not-connected` with the note "Chose not to connect yet".
+- [ ] `files/02-clients/_found-in-email/` is gone: every summary from step 5 is in a client's folder or in `files/99-archive/found-in-email/`.
+- [ ] The check-in task exists (`list_scheduled_tasks`) and its first run finished without stopping, or they said no to it.
 - [ ] Every other `context/` file says "Status: filled in", or `setup/progress.md` says why not.
 
 **Their skills**
@@ -53,13 +58,13 @@ Mention it once. Never suggest Proposal Writing OS is broken without it.
 
 1. In `setup/progress.md`, change "Setup status" to `complete on <date>` and tick the last step.
 2. In `CLAUDE.md`, change `Setup: not done yet` to `Setup: complete on <date>`.
-3. Tell them what you did, as a short list with real numbers. For example: "Read your website and 2 old proposals. Put your brand on the app and your proposals. Set up 4 packages and 3 extras. Connected Gmail and Fathom. Set up 6 client folders from 41 emails and 5 calls. Wrote your first proposal, for Hollins Lettings. Built your proposal skill."
+3. Tell them what you did, as a short list with real numbers. For example: "Read your website and 2 old proposals. Put your brand on the app and your proposals. Set up 4 packages and 3 extras. Connected Gmail and Fathom. Set up 6 client folders from 41 emails and 5 calls. Wrote your first proposal, for Hollins Lettings. Built your proposal skill." Add, in one line each: how many emails from the last 30 days you read, how many clients and proposals already sent you found in them, which apps are connected, and which are export-only.
 4. Remind them about their skills in one line: they're in the **skills-to-upload** folder, and adding them to Claude (Customize, then Skills) means they work in every conversation, including on their phone.
 5. Then tell them, briefly:
    - That nothing goes out without them: you write, they approve, save the PDF and send it.
    - Their link, **http://localhost:4747**, and whether it starts with their computer.
    - The one habit that makes it work: **everything about a client goes in their folder** (or tell Claude, or press Brain dump). Then press **Write proposal**.
-   - Whether you're checking in automatically, and when.
+   - Whether you're checking in automatically, and at what times.
    - The phrases that do most of the work: "write a proposal for...", "make it shorter", "chase Marlow", "rebuild my proposal skill". In Claude Code each skill also works as a command, for example `/write-a-proposal`.
    - That they can change their packages and prices on the **Packages** page, and the sections and sign-off in **Preferences**.
    - That they can say "get the latest version" any time and you will bring the app up to date, keeping everything of theirs.

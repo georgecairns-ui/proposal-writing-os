@@ -2,7 +2,7 @@
 
 Status: not filled in yet
 
-<!-- Claude: fill this in during setup steps 5 and 6. Keep it short and factual. Replace every line below. -->
+<!-- Claude: fill this in during setup steps 1, 2, 7 and 9. Keep it short and factual. Replace every line below. -->
 
 - Name:
 - What we do, in a sentence:
@@ -16,5 +16,5 @@ Status: not filled in yet
 
 ## Services
 
-<!-- Claude: one line per service or product: who it's for, rough price, what's included, and what happens from first enquiry to done. Filled in during setup step 6. -->
+<!-- Claude: one line per service or product: who it's for, rough price, what's included, and what happens from first enquiry to done. Filled in during setup step 9. -->
 
