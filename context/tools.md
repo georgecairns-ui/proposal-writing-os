@@ -2,7 +2,7 @@
 
 Status: not filled in yet
 
-<!-- Claude: fill in "Your setup" in setup step 1 and "Connected apps" in steps 2 and 3. Never write passwords, keys or codes in this file or anywhere in this folder. -->
+<!-- Claude: fill in "Your setup" in setup step 1 and "Connected apps" in steps 5, 6 and 8. Never write passwords, keys or codes in this file or anywhere in this folder. -->
 
 ## Your setup
 

@@ -7,7 +7,7 @@ Goal: short, accurate notes in `context/` so your proposals sound like them and 
 ## 7.1 Work it out first
 
 With the connections from steps 5 and 6, quietly gather:
-- From their **sent email** (last 2 to 3 weeks): who they deal with most, their clients, how they write.
+- From their **email**, which you read for the last 30 days in step 5 (don't read it again): who they deal with most, their clients, how they write.
 - From **calls**: how they talk about their work, and what clients ask most.
 - From their **website**: what the business does, its story, its proof (reviews, case studies, awards).
 
